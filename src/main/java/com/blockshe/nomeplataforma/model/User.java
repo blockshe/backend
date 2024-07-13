@@ -6,13 +6,15 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
 
 import java.util.Date;
 
 @Entity
 @Table(name="user")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class UserModel {
+@Data //Cria getters and setters
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //AutoIncrement
@@ -32,5 +34,9 @@ public class UserModel {
 
     @NotNull
     private Date dataNascimento;
+
+    @NotNull
+    private Perfil perfil;
+
 
 }

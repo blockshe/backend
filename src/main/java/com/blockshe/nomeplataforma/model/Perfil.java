@@ -7,6 +7,8 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.query.criteria.JpaDerivedFrom;
+import org.springframework.security.web.server.csrf.ServerCsrfTokenRequestResolver;
 
 @Table(name="tbperfil")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -26,5 +28,9 @@ public class Perfil {
     @OneToMany
     @JsonIgnoreProperties({"perfil"})
     private Tecnologia tecnologia;
+
+    private Investidor investidor;
+
+    private Empreendedor empreendedor;
 
 }
